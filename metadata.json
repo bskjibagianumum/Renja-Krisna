@@ -1,0 +1,6 @@
+{
+  "name": "Excel Dashboard & Filter Analisis",
+  "description": "Dashboard interaktif analisis Laporan Renja APBN Kemenperin dengan tabel matriks alokasi jenis belanja, 5 kartu eksekutif, dan multi-level filtering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
