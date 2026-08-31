@@ -126,10 +126,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="btn-navbar-load-sample"
               onClick={onLoadSample}
               className="inline-flex items-center px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 shadow-2xs hover:shadow-xs transition-all active:scale-95 cursor-pointer"
-              title="Muat data sampel resmi dari file laporan_renja (87).xlsx"
+              title="Muat data sampel simulasi"
             >
               <Sparkles className="w-3.5 h-3.5 mr-1.5 text-indigo-500 dark:text-indigo-400" />
-              <span className="hidden sm:inline">Data Sampel: laporan_renja (87).xlsx</span>
+              <span className="hidden sm:inline">Data Sampel</span>
               <span className="sm:hidden">Sampel</span>
             </button>
 

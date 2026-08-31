@@ -27,19 +27,7 @@ export default function App() {
   const [showUploadModal, setShowUploadModal] = useState<boolean>(false);
   const [showMappingModal, setShowMappingModal] = useState<boolean>(false);
 
-  // Initialize with Sample Data on mount
-  useEffect(() => {
-    const parsed = parseSampleData(SAMPLE_EXCEL_DATA);
-    setData(parsed.data);
-    setHeaders(parsed.headers);
-    setColumnMapping(parsed.columnMapping);
-    setAlokasiKey(parsed.alokasiKey);
-    setTargetKey(parsed.targetKey);
-    setMetadata(parsed.metadata);
-    setWorkbook(parsed.workbook);
-  }, []);
-
-  // Handle Dark mode class toggle
+  // Dark mode class toggle
   useEffect(() => {
     const root = document.documentElement;
     if (darkMode) {

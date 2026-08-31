@@ -166,10 +166,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           </div>
           <div>
             <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-              Gunakan data dummy laporan_renja (87).xlsx?
+              Belum punya file Excel untuk dicoba?
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Muat data simulasi Renja APBN Kemenperin dengan format resmi dan rasakan fiturnya seketika.
+              Muat data simulasi APBN dengan format kolom resmi dan rasakan fiturnya seketika.
             </p>
           </div>
         </div>
@@ -183,7 +183,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/50 dark:hover:bg-indigo-900/50 border border-indigo-200 dark:border-indigo-800 transition-colors shrink-0"
         >
           <FileCheck className="w-4 h-4 mr-1.5" />
-          Muat Dummy laporan_renja (87).xlsx
+          Muat Data Sampel
         </button>
       </div>
 
