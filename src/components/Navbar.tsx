@@ -52,10 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               <div className="flex items-center space-x-2">
                 <h1 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
-                  Excel Dashboard & Filter Analisis
+                  Dashboard dan Analisis
                 </h1>
                 <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">
-                  APBN
+                  Renja KRISNA
                 </span>
               </div>
               {metadata ? (

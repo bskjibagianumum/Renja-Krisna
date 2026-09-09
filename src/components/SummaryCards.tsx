@@ -203,7 +203,7 @@ export const SummaryCards: React.FC<SummaryCardsProps> = ({
               }`}
             >
               <LayoutGrid className="w-3.5 h-3.5 mr-1.5" />
-              5 Kartu Eksekutif
+              Rekap
             </button>
           </div>
 

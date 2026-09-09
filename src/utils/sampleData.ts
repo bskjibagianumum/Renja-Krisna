@@ -92,7 +92,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
   },
 
   // =========================================================================
-  // 2. BSKJI (019.07) - PROGRAM RISET, INOVASI, DAN STANDARISASI INDUSTRI (019.07.BD)
+  // 2. BSKJI (019.07) - PROGRAM NILAI TAMBAH DAN DAYA SAING INDUSTRI (019.07.EC)
   // =========================================================================
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -100,7 +100,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'Pusat Industri Hijau',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengembangan Standar Industri Hijau',
     kro: 'KRO.002 Fasilitasi Industri Hijau',
     ro: 'RO.02 Verifikasi Industri Hijau',
@@ -112,7 +112,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 24,
     satuan: 'Laporan Evaluasi',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.002.051'
+    kode_anggaran: '019.07.EC.2155.BMA.002.051'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -120,7 +120,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'Pusat Industri Hijau',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengembangan Standar Industri Hijau',
     kro: 'KRO.002 Fasilitasi Industri Hijau',
     ro: 'RO.04 Audit Energi Pabrik',
@@ -132,7 +132,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 35,
     satuan: 'Pabrik Industri',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.004.052'
+    kode_anggaran: '019.07.EC.2155.BMA.004.052'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -140,7 +140,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJI Surabaya',
     type_komponen: 'Non Operasional',
     sumber_dana: 'PNBP',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengembangan Standar Industri Hijau',
     kro: 'KRO.002 Fasilitasi Industri Hijau',
     ro: 'RO.04 Audit Energi Pabrik',
@@ -152,7 +152,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 60,
     satuan: 'Sampel Uji Emisi',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.004.053'
+    kode_anggaran: '019.07.EC.2155.BMA.004.053'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -160,7 +160,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'Pusat Standardisasi Industri',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Penyusunan dan Harmonisasi Standar Industri (RSNI)',
     kro: 'KRO.001 Pembinaan Standar Industri',
     ro: 'RO.01 Perumusan SNI Baru',
@@ -172,7 +172,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 15,
     satuan: 'Dokumen RSNI',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.001.054'
+    kode_anggaran: '019.07.EC.2155.BMA.001.054'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -180,7 +180,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJPPI Semarang',
     type_komponen: 'Non Operasional',
     sumber_dana: 'PNBP',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengujian Mutu dan Sertifikasi Produk',
     kro: 'KRO.003 Pengawasan Standardisasi',
     ro: 'RO.03 Sertifikasi ISO 17025',
@@ -192,7 +192,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 25,
     satuan: 'Unit Instrumen Lab',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.003.055'
+    kode_anggaran: '019.07.EC.2155.BMA.003.055'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -200,7 +200,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJI Medan',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengujian Mutu dan Sertifikasi Produk',
     kro: 'KRO.003 Pengawasan Standardisasi',
     ro: 'RO.03 Sertifikasi ISO 17025',
@@ -212,7 +212,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 60,
     satuan: 'Peserta / Auditor',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.003.056'
+    kode_anggaran: '019.07.EC.2155.BMA.003.056'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -220,7 +220,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJILM Bandung',
     type_komponen: 'Non Operasional',
     sumber_dana: 'SBSN',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Optimalisasi Pemanfaatan Teknologi Industri & Mesin Logam',
     kro: 'KRO.001 Pembinaan Standar Industri',
     ro: 'RO.01 Perumusan SNI Baru',
@@ -232,7 +232,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 5,
     satuan: 'Prototipe Mesin',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2156.BMA.001.057'
+    kode_anggaran: '019.07.EC.2156.BMA.001.057'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -240,7 +240,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJI Makassar',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Optimalisasi Pemanfaatan Teknologi Industri',
     kro: 'KRO.002 Fasilitasi Industri Hijau',
     ro: 'RO.02 Verifikasi Industri Hijau',
@@ -252,7 +252,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 80,
     satuan: 'IKM Binaan',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2156.BMA.002.058'
+    kode_anggaran: '019.07.EC.2156.BMA.002.058'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -260,7 +260,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJPPI Semarang',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengujian Mutu dan Pengawasan Standar Produk',
     kro: 'KRO.003 Pengawasan Standardisasi',
     ro: 'RO.01 Perumusan SNI Baru',
@@ -272,7 +272,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 150,
     satuan: 'Sampel Uji Pasar',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.001.061'
+    kode_anggaran: '019.07.EC.2155.BMA.001.061'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -280,7 +280,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJIKFK Jakarta',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengembangan Standar Industri Bahan Kimia & Kemasan',
     kro: 'KRO.001 Pembinaan Standar Industri',
     ro: 'RO.01 Perumusan SNI Baru',
@@ -292,7 +292,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 4,
     satuan: 'Dokumen NSPK',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.001.064'
+    kode_anggaran: '019.07.EC.2155.BMA.001.064'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -300,7 +300,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BBSPJI Makassar',
     type_komponen: 'Non Operasional',
     sumber_dana: 'PNBP',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pengujian Mutu dan Sertifikasi Produk Hasil Bumi',
     kro: 'KRO.003 Pengawasan Standardisasi',
     ro: 'RO.03 Sertifikasi ISO 17025',
@@ -312,7 +312,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 24,
     satuan: 'Lembaga Penilai',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.003.066'
+    kode_anggaran: '019.07.EC.2155.BMA.003.066'
   },
 
   // =========================================================================
@@ -384,7 +384,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BSPJI Banda Aceh',
     type_komponen: 'Non Operasional',
     sumber_dana: 'RM (Rupiah Murni)',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Pendampingan Standardisasi dan Sertifikasi Halal Industri Minyak Atsiri',
     kro: 'KRO.002 Fasilitasi Industri Hijau',
     ro: 'RO.01 Perumusan SNI Baru',
@@ -396,7 +396,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 25,
     satuan: 'IKM Nilam',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.001.067'
+    kode_anggaran: '019.07.EC.2155.BMA.001.067'
   },
   {
     'unit eselon1': 'Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI)',
@@ -404,7 +404,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     satker: 'BSPJI Banjarbaru',
     type_komponen: 'Non Operasional',
     sumber_dana: 'BLU',
-    program: 'Program Riset, Inovasi, dan Standarisasi Industri',
+    program: 'Program Nilai Tambah dan Daya Saing Industri',
     kegiatan: 'Layanan Pengujian Kualitas Air dan Udara Industri Tambang',
     kro: 'KRO.003 Pengawasan Standardisasi',
     ro: 'RO.03 Sertifikasi ISO 17025',
@@ -416,7 +416,7 @@ export const SAMPLE_EXCEL_DATA: ExcelRow[] = [
     target_komponen_0: 120,
     satuan: 'Paket Reagen Uji',
     tahun_anggaran: '2026',
-    kode_anggaran: '019.07.BD.2155.BMA.003.068'
+    kode_anggaran: '019.07.EC.2155.BMA.003.068'
   },
 
   // =========================================================================

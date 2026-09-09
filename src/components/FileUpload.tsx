@@ -3,7 +3,6 @@ import {
   UploadCloud, 
   FileSpreadsheet, 
   Sparkles, 
-  CheckCircle2, 
   AlertCircle,
   FileCheck,
   X
@@ -169,7 +168,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
               Belum punya file Excel untuk dicoba?
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Muat data simulasi APBN dengan format kolom resmi dan rasakan fiturnya seketika.
+              Muat data simulasi Renja KRISNA.
             </p>
           </div>
         </div>
@@ -185,46 +184,6 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           <FileCheck className="w-4 h-4 mr-1.5" />
           Muat Data Sampel
         </button>
-      </div>
-
-      {/* Expected Format Legend */}
-      <div className="mt-6 border-t border-slate-200 dark:border-slate-800 pt-5 text-left">
-        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center">
-          <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-emerald-500" />
-          Kolom yang Didukung Otomatis:
-        </p>
-        <div className="flex flex-wrap gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-          {[
-            'unit eselon1',
-            'unit eselon2',
-            'type_komponen',
-            'sumber_dana',
-            'program',
-            'kegiatan',
-            'kro',
-            'ro',
-            'propinsi',
-            'kabupaten',
-            'lokasi ro',
-            'komponen',
-            'alokasi_komponen_0',
-            'target_komponen_0',
-          ].map((col) => (
-            <span
-              key={col}
-              className={`px-2 py-0.5 rounded text-[11px] font-mono ${
-                col.includes('alokasi') || col.includes('target')
-                  ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold'
-                  : 'bg-slate-200/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-300'
-              }`}
-            >
-              {col}
-            </span>
-          ))}
-          <span className="px-2 py-0.5 rounded text-[11px] text-slate-400 dark:text-slate-500 italic">
-            + semua kolom kustom lainnya
-          </span>
-        </div>
       </div>
     </div>
   );
@@ -260,10 +219,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           <FileSpreadsheet className="w-9 h-9" />
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Dashboard Interaktif Analisis Excel
+          Dashboard Analisis Renja KRISNA
         </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-          Unggah data RKA-K/L atau file Excel kustom untuk menganalisis alokasi komponen, target, cascading filter multi-select, serta grafik visualisasi.
+          Unggah data Renja KRISNA untuk menganalisis alokasi komponen, target, cascading filter multi-select, serta grafik visualisasi.
         </p>
       </div>
 

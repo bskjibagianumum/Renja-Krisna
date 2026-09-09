@@ -149,12 +149,16 @@ export function extractProgramInfo(
   } else if (progLower.includes('nilai tambah') || progLower.includes('daya saing')) {
     progCode = `${unitCode}.EC`;
     progName = 'Program Nilai Tambah dan Daya Saing Industri';
-  } else if (progLower.includes('riset') || progLower.includes('inovasi') || progLower.includes('standardisasi') || progLower.includes('standarisasi')) {
-    progCode = `${unitCode}.BD`;
-    progName = 'Program Riset, Inovasi, dan Standarisasi Industri';
   } else if (progLower.includes('pendidikan') || progLower.includes('vokasi') || progLower.includes('sdm')) {
     progCode = `${unitCode}.GG`;
     progName = 'Program Pendidikan dan Pelatihan Vokasi';
+  } else if (unitCode === '019.07') {
+    // Pada BSKJI (019.07), kegiatan teknis/standardisasi/jasa industri berada di bawah Program Nilai Tambah dan Daya Saing Industri (019.07.EC)
+    progCode = `${unitCode}.EC`;
+    progName = 'Program Nilai Tambah dan Daya Saing Industri';
+  } else if (progLower.includes('riset') || progLower.includes('inovasi') || progLower.includes('standardisasi') || progLower.includes('standarisasi')) {
+    progCode = `${unitCode}.BD`;
+    progName = 'Program Riset, Inovasi, dan Standarisasi Industri';
   } else if (codeMatch) {
     const rawMatch = codeMatch[1];
     if (rawMatch.length === 2) {
@@ -359,6 +363,16 @@ export function calculateApbnSummary(
   const matrixRows: ProgramAllocationRow[] = [];
   const programAllocationsList: ApbnSummaryMatrix['programAllocations'] = [];
 
+  // Helper urutan tampilan program: .WA (Dukungan Manajemen) ke-1, .EC (Nilai Tambah dan Daya Saing Industri) ke-2
+  const getProgramSortOrder = (code: string): number => {
+    const upper = code.toUpperCase();
+    if (upper.endsWith('.WA') || upper.includes('.WA')) return 1;
+    if (upper.endsWith('.EC') || upper.includes('.EC')) return 2;
+    if (upper.endsWith('.BD') || upper.includes('.BD')) return 3;
+    if (upper.endsWith('.GG') || upper.includes('.GG')) return 4;
+    return 50;
+  };
+
   unitMap.forEach((unit) => {
     let unitPegawaiRM = 0;
     let unitOpsRM = 0;
@@ -415,6 +429,13 @@ export function calculateApbnSummary(
       });
     });
 
+    childProgramRows.sort((a, b) => {
+      const orderA = getProgramSortOrder(a.code);
+      const orderB = getProgramSortOrder(b.code);
+      if (orderA !== orderB) return orderA - orderB;
+      return a.code.localeCompare(b.code);
+    });
+
     const unitHeaderRow: ProgramAllocationRow = {
       code: unit.unitCode,
       name: unit.unitName,
@@ -436,8 +457,34 @@ export function calculateApbnSummary(
     matrixRows.push(unitHeaderRow);
   });
 
-  // Sort program allocations by total alokasi descending
-  programAllocationsList.sort((a, b) => b.totalAlokasi - a.totalAlokasi);
+  // Urutan unit: 019.07 (BSKJI) teratas, diikuti unit lainnya
+  const getUnitSortOrder = (code: string): number => {
+    if (code === '019.07') return 1;
+    if (code === '019.01') return 2;
+    if (code === '019.02') return 3;
+    if (code === '019.03') return 4;
+    if (code === '019.04') return 5;
+    if (code === '019.05') return 6;
+    if (code === '019.06') return 7;
+    if (code === '019.08') return 8;
+    if (code === '019.09') return 9;
+    return 50;
+  };
+
+  matrixRows.sort((a, b) => {
+    const orderA = getUnitSortOrder(a.code);
+    const orderB = getUnitSortOrder(b.code);
+    if (orderA !== orderB) return orderA - orderB;
+    return a.code.localeCompare(b.code);
+  });
+
+  // Sort program allocations: .WA (Dukungan Manajemen) ke-1, .EC (Nilai Tambah dan Daya Saing Industri) ke-2
+  programAllocationsList.sort((a, b) => {
+    const orderA = getProgramSortOrder(a.code);
+    const orderB = getProgramSortOrder(b.code);
+    if (orderA !== orderB) return orderA - orderB;
+    return b.totalAlokasi - a.totalAlokasi;
+  });
 
   return {
     totalAlokasi,

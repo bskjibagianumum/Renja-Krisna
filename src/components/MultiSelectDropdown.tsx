@@ -155,14 +155,22 @@ export const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
             </span>
           ) : null}
           {selectedCount > 0 && (
-            <button
-              type="button"
+            <span
+              role="button"
+              tabIndex={0}
               onClick={handleClearAll}
-              className="p-0.5 rounded-full hover:bg-emerald-200/80 dark:hover:bg-emerald-800/80 text-emerald-700 dark:text-emerald-300 transition-colors"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.stopPropagation();
+                  handleClearAll();
+                }
+              }}
+              className="p-0.5 rounded-full hover:bg-emerald-200/80 dark:hover:bg-emerald-800/80 text-emerald-700 dark:text-emerald-300 transition-colors cursor-pointer inline-flex items-center justify-center"
               title="Hapus filter ini"
+              aria-label="Hapus filter ini"
             >
               <X className="w-3.5 h-3.5" />
-            </button>
+            </span>
           )}
           <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-emerald-600 dark:text-emerald-400' : ''}`} />
         </div>
