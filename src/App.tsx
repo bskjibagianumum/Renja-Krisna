@@ -6,11 +6,12 @@ import { SummaryCards } from './components/SummaryCards';
 import { AnalyticsCharts } from './components/AnalyticsCharts';
 import { DataTable } from './components/DataTable';
 import { ColumnMappingModal } from './components/ColumnMappingModal';
+import { LoginModal } from './components/LoginModal';
 import { useFilterEngine } from './hooks/useFilterEngine';
-import { ExcelRow, FileMetadata, ColumnMapping } from './types';
+import { ExcelRow, FileMetadata, ColumnMapping, AuthUser } from './types';
 import { parseExcelFile, parseSampleData } from './utils/excelParser';
 import { SAMPLE_EXCEL_DATA } from './utils/sampleData';
-import { Sliders, RefreshCw, UploadCloud, Sparkles } from 'lucide-react';
+import { Sliders, RefreshCw, UploadCloud, Sparkles, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function App() {
   const [data, setData] = useState<ExcelRow[]>([]);
@@ -26,6 +27,41 @@ export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [showUploadModal, setShowUploadModal] = useState<boolean>(false);
   const [showMappingModal, setShowMappingModal] = useState<boolean>(false);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+  const [authNotification, setAuthNotification] = useState<string | null>(null);
+
+  // Authentication state
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(() => {
+    try {
+      const saved = localStorage.getItem('krisna_auth_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const handleLoginSuccess = (user: AuthUser) => {
+    setCurrentUser(user);
+    try {
+      localStorage.setItem('krisna_auth_user', JSON.stringify(user));
+    } catch (e) {
+      console.error(e);
+    }
+    setAuthNotification(`Selamat datang, ${user.displayName}! Anda berhasil masuk.`);
+    setTimeout(() => setAuthNotification(null), 4000);
+  };
+
+  const handleLogout = () => {
+    const prevName = currentUser?.displayName || 'Pengguna';
+    setCurrentUser(null);
+    try {
+      localStorage.removeItem('krisna_auth_user');
+    } catch (e) {
+      console.error(e);
+    }
+    setAuthNotification(`Sesi kerja ${prevName} telah diakhiri.`);
+    setTimeout(() => setAuthNotification(null), 3000);
+  };
 
   // Dark mode class toggle
   useEffect(() => {
@@ -151,7 +187,20 @@ export default function App() {
         darkMode={darkMode}
         onToggleDarkMode={() => setDarkMode(!darkMode)}
         onSheetChange={handleSheetChange}
+        currentUser={currentUser}
+        onOpenLoginModal={() => setShowLoginModal(true)}
+        onLogout={handleLogout}
       />
+
+      {/* Floating Notification Toast */}
+      {authNotification && (
+        <div className="fixed top-20 right-4 sm:right-8 z-50 animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="flex items-center space-x-2.5 px-4 py-3 rounded-2xl bg-slate-900/90 dark:bg-slate-100/95 text-white dark:text-slate-900 shadow-xl border border-slate-700/50 dark:border-slate-300 backdrop-blur-md text-xs font-semibold">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 dark:text-emerald-600 flex-shrink-0" />
+            <span>{authNotification}</span>
+          </div>
+        </div>
+      )}
 
       {/* Main Dashboard Body */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
@@ -270,6 +319,13 @@ export default function App() {
         alokasiColName={alokasiKey}
         targetColName={targetKey}
         onSaveMapping={handleSaveMapping}
+      />
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onLoginSuccess={handleLoginSuccess}
       />
 
     </div>

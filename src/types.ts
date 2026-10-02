@@ -120,3 +120,11 @@ export interface FileMetadata {
   totalColumns: number;
   uploadedAt: Date;
 }
+
+export interface AuthUser {
+  username: string;
+  displayName: string;
+  role: string;
+  unit: string;
+  loginAt: string;
+}

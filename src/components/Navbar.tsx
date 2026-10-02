@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   FileSpreadsheet, 
   RotateCcw, 
@@ -6,9 +6,15 @@ import {
   Moon, 
   Sun, 
   Sparkles,
-  Layers
+  Layers,
+  LogIn,
+  LogOut,
+  User,
+  ChevronDown,
+  ShieldCheck,
+  CheckCircle2
 } from 'lucide-react';
-import { FileMetadata } from '../types';
+import { FileMetadata, AuthUser } from '../types';
 import { formatFileSize } from '../utils/formatters';
 
 interface NavbarProps {
@@ -20,6 +26,9 @@ interface NavbarProps {
   darkMode: boolean;
   onToggleDarkMode: () => void;
   onSheetChange?: (sheetName: string) => void;
+  currentUser: AuthUser | null;
+  onOpenLoginModal: () => void;
+  onLogout: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -30,8 +39,24 @@ export const Navbar: React.FC<NavbarProps> = ({
   hasActiveFilters,
   darkMode,
   onToggleDarkMode,
-  onSheetChange
+  onSheetChange,
+  currentUser,
+  onOpenLoginModal,
+  onLogout
 }) => {
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close user dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   return (
     <header id="app-navbar" className="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl transition-all shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,6 +181,109 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
             </button>
+
+            {/* Vertical Separator */}
+            <div className="h-6 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
+
+            {/* User Login Menu / Profile Dropdown */}
+            {currentUser ? (
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  type="button"
+                  id="btn-user-profile-menu"
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className="flex items-center space-x-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-800/80 bg-emerald-50/70 dark:bg-emerald-950/40 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 transition-all cursor-pointer text-left shadow-2xs"
+                  title="Menu Pengguna Renja KRISNA"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                    SJ
+                  </div>
+                  <div className="hidden sm:block text-left leading-tight">
+                    <div className="text-xs font-bold text-slate-900 dark:text-white truncate max-w-[120px]">
+                      {currentUser.displayName}
+                    </div>
+                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      <span>@{currentUser.username}</span>
+                    </div>
+                  </div>
+                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* Dropdown Card */}
+                {isUserMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 py-3 z-50 animate-in fade-in zoom-in-95">
+                    {/* User Header Profile */}
+                    <div className="px-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold text-sm flex items-center justify-center shadow-md shadow-emerald-500/20">
+                          SJ
+                        </div>
+                        <div className="overflow-hidden">
+                          <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                            {currentUser.displayName}
+                          </h4>
+                          <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono">
+                            @{currentUser.username}
+                          </p>
+                          <span className="inline-flex items-center gap-1 mt-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                            <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                            Aktif & Terverifikasi
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="px-4 py-2.5 space-y-2 text-xs">
+                      <div>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold block">Peran / Hak Akses</span>
+                        <span className="text-slate-700 dark:text-slate-300 font-medium">
+                          {currentUser.role}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold block">Unit Kerja</span>
+                        <span className="text-slate-700 dark:text-slate-300 font-medium">
+                          {currentUser.unit}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-500">
+                        <span>Waktu Masuk</span>
+                        <span className="font-mono">{currentUser.loginAt}</span>
+                      </div>
+                    </div>
+
+                    {/* Logout Button */}
+                    <div className="px-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+                      <button
+                        type="button"
+                        id="btn-logout"
+                        onClick={() => {
+                          setIsUserMenuOpen(false);
+                          onLogout();
+                        }}
+                        className="w-full flex items-center justify-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                      >
+                        <LogOut className="w-3.5 h-3.5" />
+                        <span>Keluar (Logout)</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                id="btn-navbar-login"
+                onClick={onOpenLoginModal}
+                className="inline-flex items-center px-3 sm:px-4 py-2 rounded-xl text-xs font-bold text-slate-800 dark:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-2xs hover:shadow-xs active:scale-95 transition-all cursor-pointer"
+                title="Masuk sebagai user Renja KRISNA"
+              >
+                <LogIn className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-emerald-400" />
+                <span>Login</span>
+              </button>
+            )}
 
           </div>
 
