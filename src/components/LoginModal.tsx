@@ -242,9 +242,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         </div>
 
         {/* Footer info */}
-        <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
-          <span>Kementerian Perindustrian RI</span>
-          <span className="text-emerald-600 dark:text-emerald-400 font-medium">BSKJI Renja</span>
+        <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800/80 text-xs font-bold text-slate-600 dark:text-slate-300 text-center tracking-wider">
+          BSKJI
         </div>
       </div>
     </div>
