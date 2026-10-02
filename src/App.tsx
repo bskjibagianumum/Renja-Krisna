@@ -7,6 +7,7 @@ import { AnalyticsCharts } from './components/AnalyticsCharts';
 import { DataTable } from './components/DataTable';
 import { ColumnMappingModal } from './components/ColumnMappingModal';
 import { LoginModal } from './components/LoginModal';
+import { LoginScreen } from './components/LoginScreen';
 import { useFilterEngine } from './hooks/useFilterEngine';
 import { ExcelRow, FileMetadata, ColumnMapping, AuthUser } from './types';
 import { parseExcelFile, parseSampleData } from './utils/excelParser';
@@ -173,6 +174,29 @@ export default function App() {
       })
     );
   };
+
+  // Render initial Login Screen if user is not authenticated
+  if (!currentUser) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
+        {/* Floating Notification Toast (e.g. on logout) */}
+        {authNotification && (
+          <div className="fixed top-6 right-4 sm:right-8 z-50 animate-in fade-in slide-in-from-top-4 duration-300">
+            <div className="flex items-center space-x-2.5 px-4 py-3 rounded-2xl bg-slate-900/90 dark:bg-slate-100/95 text-white dark:text-slate-900 shadow-xl border border-slate-700/50 dark:border-slate-300 backdrop-blur-md text-xs font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 dark:text-emerald-600 flex-shrink-0" />
+              <span>{authNotification}</span>
+            </div>
+          </div>
+        )}
+
+        <LoginScreen
+          onLoginSuccess={handleLoginSuccess}
+          darkMode={darkMode}
+          onToggleDarkMode={() => setDarkMode(!darkMode)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
